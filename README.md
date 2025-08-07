@@ -1,6 +1,6 @@
 # JWT Authentication System
 
-A production-ready JWT authentication system built with Node.js, Express, and MySQL. This system includes email verification, password reset, rate limiting, token blacklisting, and comprehensive security features.
+A production-ready JWT authentication system built with Node.js, Express, and MySQL. This system includes email verification, password reset, rate limiting, token blacklisting, and comprehensive security features. The full tutorial can be found at [Node.js JWT Authentication: The Complete Developer’s Guide 2025](https://cloudfullstack.dev/complete-node-js-jwt-authentication/)
 
 ## ✨ Features
 
@@ -169,7 +169,7 @@ Content-Type: application/json
 
 #### 2. Verify Email
 ```http
-POST /api/auth/verify-email/:token
+GET /api/auth/verify-email/:token
 ```
 
 #### 3. Resend Verification Email
@@ -354,19 +354,6 @@ FRONTEND_URL=https://yourdomain.com
 ALLOWED_ORIGINS=https://yourdomain.com,https://www.yourdomain.com
 ```
 
-### Production Checklist
-
-- [ ] Use strong, unique JWT secret (64+ characters)
-- [ ] Enable HTTPS
-- [ ] Configure proper CORS origins
-- [ ] Set up database backups
-- [ ] Configure email service (not Gmail for production)
-- [ ] Set up monitoring and logging
-- [ ] Configure reverse proxy (Nginx/Apache)
-- [ ] Set up SSL certificates
-- [ ] Configure firewall rules
-- [ ] Set up database connection pooling
-
 ### Docker Deployment (Optional)
 
 ```dockerfile
@@ -384,33 +371,6 @@ EXPOSE 3000
 CMD ["npm", "start"]
 ```
 
-## 🔍 Troubleshooting
-
-### Common Issues
-
-1. **Email not sending**
-   - Check Gmail App Password
-   - Verify SMTP settings
-   - Check firewall/network restrictions
-
-2. **Database connection failed**
-   - Verify MySQL is running
-   - Check database credentials
-   - Ensure database exists
-
-3. **JWT token invalid**
-   - Check JWT_SECRET configuration
-   - Verify token format (Bearer token)
-   - Check token expiration
-
-4. **Rate limiting too aggressive**
-   - Adjust limits in `middleware/rateLimiter.js`
-   - Clear rate limit cache (restart server)
-
-5. **CORS errors**
-   - Check ALLOWED_ORIGINS configuration
-   - Verify frontend URL matches
-
 ## 📈 Performance Optimizations
 
 - **Connection Pooling**: MySQL connection pool for efficient database usage
@@ -418,36 +378,6 @@ CMD ["npm", "start"]
 - **Token Cleanup**: Automatic removal of expired blacklisted tokens
 - **Indexed Queries**: Database indexes for faster lookups
 - **Password Hashing**: Optimized bcrypt rounds for security/performance balance
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- Built with Express.js and MySQL
-- JWT implementation using jsonwebtoken
-- Security powered by bcryptjs and helmet
-- Validation using Joi
-- Email functionality with nodemailer
-
-## 📞 Support
-
-If you encounter any issues or have questions:
-
-1. Check the [Troubleshooting](#-troubleshooting) section
-2. Search existing issues on GitHub
-3. Create a new issue with detailed information
-4. Provide error logs and environment details
-
 ---
 
 **Happy Coding! 🚀**
